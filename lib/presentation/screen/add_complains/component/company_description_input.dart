@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+import '../../../../utils/constraints.dart';
+import '../../../../utils/utils.dart';
+import '../../../../widgets/custom_text.dart';
+
+class CompanyDescriptionInput extends StatelessWidget {
+  const CompanyDescriptionInput({super.key, this.widget});
+
+  final Widget? widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Utils.verticalSpace(12),
+        Row(
+          children: [
+            CustomText(text: 'Complaint Details', fontSize: 16),
+            CustomText(
+              text: ' (Max 800 Characters)',
+              fontSize: 12,
+              color: hintTextColor,
+            ),
+          ],
+        ),
+        widget ?? SizedBox.shrink(),
+        Utils.verticalSpace(12),
+      ],
+    );
+  }
+}
