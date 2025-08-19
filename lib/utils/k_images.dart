@@ -120,6 +120,8 @@ class KImages {
   static const String badgeIcon = 'assets/icons/badge.svg';
   static const String filterIcon = 'assets/icons/filter.svg';
   static const String notFountIcon = 'assets/icons/not_fount.svg';
+  static const String proProfileIcon = 'assets/icons/pro_profile.svg';
+  static const String starFileIcon = 'assets/icons/star_file.svg';
 
   ///Others Image
   static const String verifyPhoneEmail = 'assets/images/verify_phone_email.png';

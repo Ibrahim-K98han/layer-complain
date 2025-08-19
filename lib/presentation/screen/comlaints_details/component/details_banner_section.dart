@@ -31,7 +31,7 @@ class DetailsBannerSection extends StatelessWidget {
               width: double.infinity,
               height: 125.h,
               decoration: BoxDecoration(
-                color: primaryColor.withOpacity(0.1),
+                color: primaryColor.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(10.r),
               ),
             ),

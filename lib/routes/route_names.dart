@@ -7,8 +7,9 @@ import 'package:layer_complain/presentation/screen/authentication/login_screen.d
 import 'package:layer_complain/presentation/screen/authentication/register_screen.dart';
 import 'package:layer_complain/presentation/screen/authentication/verify_identity_screen.dart';
 import 'package:layer_complain/presentation/screen/complains/complains_screen.dart';
-import 'package:layer_complain/presentation/screen/details/details_screen.dart';
+import 'package:layer_complain/presentation/screen/find_lawyer/find_lawyer_screen.dart';
 import 'package:layer_complain/presentation/screen/home/home_screen.dart';
+import 'package:layer_complain/presentation/screen/lawyer_details/lawyer_details_screen.dart';
 import 'package:layer_complain/presentation/screen/main_screen/main_screen.dart';
 import 'package:layer_complain/presentation/screen/message/message_screen.dart';
 import 'package:layer_complain/presentation/screen/profile/profile_screen.dart';
@@ -16,6 +17,8 @@ import 'package:layer_complain/presentation/screen/profile/profile_screen.dart';
 import '../presentation/screen/authentication/forgot_password_screen.dart';
 import '../presentation/screen/authentication/otp_screen.dart';
 import '../presentation/screen/authentication/phone_number_or_email_verify_screen.dart';
+import '../presentation/screen/comlaints_details/complaints_details_screen.dart';
+import '../presentation/screen/find_lawyer/all_lawyer_screen.dart';
 import '../presentation/screen/on_boarding/on_boarding_screen.dart';
 import '../presentation/screen/splash/splash_screen.dart';
 import '../presentation/screen/subscription/payment_screen.dart';
@@ -39,9 +42,12 @@ class RouteNames {
   static const String messageScreen = '/messageScreen';
   static const String profileScreen = '/profileScreen';
   static const String addComplainsScreen = '/addComplainsScreen';
-  static const String detailsScreen = '/detailsScreen';
+  static const String complaintsDetailsScreen = '/complaintsDetailsScreen';
   static const String subscriptionScreen = '/subscriptionScreen';
   static const String paymentScreen = '/paymentScreen';
+  static const String findLawyerScreen = '/findLawyerScreen';
+  static const String allLawyerScreen = '/allLawyerScreen';
+  static const String lawyerDetailsScreen = '/lawyerDetailsScreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
@@ -130,10 +136,10 @@ class RouteNames {
           settings: settings,
           builder: (_) => const AddComplainsScreen(),
         );
-      case RouteNames.detailsScreen:
+      case RouteNames.complaintsDetailsScreen:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const DetailsScreen(),
+          builder: (_) => const ComplaintsDetailsScreen(),
         );
       case RouteNames.subscriptionScreen:
         return MaterialPageRoute(
@@ -144,6 +150,21 @@ class RouteNames {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const PaymentScreen(),
+        );
+      case RouteNames.findLawyerScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const FindLawyerScreen(),
+        );
+      case RouteNames.allLawyerScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const AllLawyerScreen(),
+        );
+      case RouteNames.lawyerDetailsScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const LawyerDetailsScreen(),
         );
 
       default:

@@ -24,7 +24,7 @@ class RecentComplaintContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, RouteNames.detailsScreen);
+        Navigator.pushNamed(context, RouteNames.complaintsDetailsScreen);
       },
       child: Container(
         height: 140.h,

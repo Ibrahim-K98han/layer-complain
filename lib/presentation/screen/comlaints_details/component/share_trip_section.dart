@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:layer_complain/presentation/screen/details/component/social_media_widget.dart';
+import 'package:layer_complain/presentation/screen/comlaints_details/component/social_media_widget.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';

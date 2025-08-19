@@ -17,14 +17,14 @@ import 'component/share_trip_section.dart';
 import 'component/social_media_widget.dart';
 import 'component/summary_section.dart';
 
-class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({super.key});
+class ComplaintsDetailsScreen extends StatefulWidget {
+  const ComplaintsDetailsScreen({super.key});
 
   @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
+  State<ComplaintsDetailsScreen> createState() => _ComplaintsDetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

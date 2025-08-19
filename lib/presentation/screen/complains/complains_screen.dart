@@ -120,7 +120,7 @@ class _ComplainsScreenState extends State<ComplainsScreen> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteNames.detailsScreen);
+                        Navigator.pushNamed(context, RouteNames.complaintsDetailsScreen);
                       },
                       child: Container(
                         margin: EdgeInsets.only(bottom: 12, top: 8),
