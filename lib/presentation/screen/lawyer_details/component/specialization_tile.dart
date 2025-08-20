@@ -55,8 +55,8 @@ class _SpecializationTileState extends State<SpecializationTile> {
     Function(int) onTap,
   ) {
     return Wrap(
-      spacing: 8,
-      runSpacing: 8,
+      spacing: 6,
+      runSpacing: 2,
       children: List.generate(items.length, (index) {
         final selected = selectedIndexes.contains(index);
         return GestureDetector(

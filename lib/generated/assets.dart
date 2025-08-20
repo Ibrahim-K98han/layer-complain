@@ -10,11 +10,13 @@ class Assets {
   static const String authenticationPhoneNumberOrEmailVerifyScreen = 'lib/presentation/screen/authentication/phone_number_or_email_verify_screen.dart';
   static const String authenticationRegisterScreen = 'lib/presentation/screen/authentication/register_screen.dart';
   static const String authenticationVerifyIdentityScreen = 'lib/presentation/screen/authentication/verify_identity_screen.dart';
+  static const String becomeALawyerBecomeALawyerScreen = 'lib/presentation/screen/become_a_lawyer/become_a_lawyer_screen.dart';
   static const String comlaintsDetailsComplaintsDetailsScreen = 'lib/presentation/screen/comlaints_details/complaints_details_screen.dart';
   static const String complainsComplainsScreen = 'lib/presentation/screen/complains/complains_screen.dart';
   static const String componentAboutTile = 'lib/presentation/screen/lawyer_details/component/about_tile.dart';
   static const String componentAddComplaintDataWidget = 'lib/presentation/screen/add_complains/component/add_complaint_data_widget.dart';
   static const String componentAddImageSection = 'lib/presentation/screen/add_complains/component/add_image_section.dart';
+  static const String componentAgreeWidget = 'lib/presentation/screen/become_a_lawyer/component/agree_widget.dart';
   static const String componentAllLawyer = 'lib/presentation/screen/find_lawyer/component/all_lawyer.dart';
   static const String componentBuildFeatureItem = 'lib/presentation/screen/subscription/component/build_feature_item.dart';
   static const String componentBuildPlanCard = 'lib/presentation/screen/subscription/component/build_plan_card.dart';
@@ -41,10 +43,13 @@ class Assets {
   static const String componentLawyerRegisterForm = 'lib/presentation/screen/authentication/component/lawyer_register_form.dart';
   static const String componentMainController = 'lib/presentation/screen/main_screen/component/main_controller.dart';
   static const String componentMessageBottomSheet = 'lib/presentation/screen/lawyer_details/component/message_bottom_sheet.dart';
+  static const String componentMessageSection = 'lib/presentation/screen/message/component/message_section.dart';
   static const String componentMonthAndYearBtn = 'lib/presentation/screen/subscription/component/month_and_year_btn.dart';
   static const String componentMyBottomNavigationBar = 'lib/presentation/screen/main_screen/component/my_bottom_navigation_bar.dart';
+  static const String componentMyComplaintsContainer = 'lib/presentation/screen/profile/component/my_complaints_container.dart';
   static const String componentOtpSuccess = 'lib/presentation/screen/authentication/component/otp_success.dart';
   static const String componentPasswordFormattingWidget = 'lib/presentation/screen/authentication/component/password_formatting_widget.dart';
+  static const String componentPopularQuestionWidget = 'lib/presentation/screen/profile/component/popular_question_widget.dart';
   static const String componentProfileHeader = 'lib/presentation/screen/profile/component/profile_header.dart';
   static const String componentProfileHeaderComplainCount = 'lib/presentation/screen/profile/component/profile_header_complain_count.dart';
   static const String componentProfileItem = 'lib/presentation/screen/profile/component/profile_item.dart';
@@ -200,10 +205,25 @@ class Assets {
   static const String lawyerDetailsLawyerDetailsScreen = 'lib/presentation/screen/lawyer_details/lawyer_details_screen.dart';
   static const String libMain = 'lib/main.dart';
   static const String mainScreenMainScreen = 'lib/presentation/screen/main_screen/main_screen.dart';
+  static const String messageChatScreen = 'lib/presentation/screen/message/chat_screen.dart';
   static const String messageMessageScreen = 'lib/presentation/screen/message/message_screen.dart';
   static const String onBoardingOnBoardingScreen = 'lib/presentation/screen/on_boarding/on_boarding_screen.dart';
+  static const String profileAppInfoScreen = 'lib/presentation/screen/profile/app_info_screen.dart';
+  static const String profileMyComplaintsScreen = 'lib/presentation/screen/profile/my_complaints_screen.dart';
+  static const String profilePrivacyPolicyScreen = 'lib/presentation/screen/profile/privacy_policy_screen.dart';
   static const String profileProfileScreen = 'lib/presentation/screen/profile/profile_screen.dart';
+  static const String profileQuestionScreen = 'lib/presentation/screen/profile/question_screen.dart';
+  static const String profileReviewScreen = 'lib/presentation/screen/profile/review_screen.dart';
+  static const String profileSupportTicketScreen = 'lib/presentation/screen/profile/support_ticket_screen.dart';
+  static const String profileTermsConditionScreen = 'lib/presentation/screen/profile/terms_condition_screen.dart';
   static const String routesRouteNames = 'lib/routes/route_names.dart';
+  static const String settingsChangePasswordScreen = 'lib/presentation/screen/settings/change_password_screen.dart';
+  static const String settingsDeleteAccountScreen = 'lib/presentation/screen/settings/delete_account_screen.dart';
+  static const String settingsLanguageScreen = 'lib/presentation/screen/settings/language_screen.dart';
+  static const String settingsLinkAccountScreen = 'lib/presentation/screen/settings/link_account_screen.dart';
+  static const String settingsNotificationSettingScreen = 'lib/presentation/screen/settings/notification_setting_screen.dart';
+  static const String settingsProfileSettingsScreen = 'lib/presentation/screen/settings/profile_settings_screen.dart';
+  static const String settingsSettingsScreen = 'lib/presentation/screen/settings/settings_screen.dart';
   static const String splashSplashScreen = 'lib/presentation/screen/splash/splash_screen.dart';
   static const String subscriptionPaymentScreen = 'lib/presentation/screen/subscription/payment_screen.dart';
   static const String subscriptionSubScriptionScreen = 'lib/presentation/screen/subscription/sub_scription_screen.dart';
@@ -219,6 +239,9 @@ class Assets {
   static const String widgetsCustomText = 'lib/widgets/custom_text.dart';
   static const String widgetsCustomTheme = 'lib/widgets/custom_theme.dart';
   static const String widgetsFetchErrorText = 'lib/widgets/fetch_error_text.dart';
+  static const String widgetsHeadingText = 'lib/widgets/heading_text.dart';
+  static const String widgetsLanguageWidget = 'lib/widgets/language_widget.dart';
   static const String widgetsPrimaryButton = 'lib/widgets/primary_button.dart';
+  static const String widgetsProfessionalTitleWidget = 'lib/widgets/professional_title_widget.dart';
 
 }

@@ -55,7 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen>
       ///================ Sign Up Button Section =============///
       bottomNavigationBar: Container(
         padding: EdgeInsets.zero,
-        height: 235.h,
+        height: 200.h,
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.only(
@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen>
           padding: Utils.symmetric(),
           child: Column(
             children: [
-              Utils.verticalSpace(28),
+              Utils.verticalSpace(15),
 
               ///=============== Sign Up button ================///
               PrimaryButton(
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                   Navigator.pushNamed(context, RouteNames.verifyIdentityScreen);
                 },
               ),
-              Utils.verticalSpace(16),
+              Utils.verticalSpace(12),
 
               ///============ Already Have account text ============///
               GestureDetector(
@@ -108,7 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                   ),
                 ),
               ),
-              Utils.verticalSpace(20.0),
+              Utils.verticalSpace(14.0),
 
               ///================== OR text ==================///
               Row(
@@ -131,7 +131,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                   ),
                 ],
               ),
-              Utils.verticalSpace(16.0),
+              Utils.verticalSpace(12.0),
 
               ///================== Social Login ==================///
               Row(
@@ -173,11 +173,12 @@ class _RegisterScreenState extends State<RegisterScreen>
               fontWeight: FontWeight.w600,
             ),
             CustomText(
+              textAlign: TextAlign.center,
               text: 'Create an account raise & resolve complaints easily.',
               color: lightTextColor,
-              fontSize: 13,
+              fontSize: 14,
             ),
-            Utils.verticalSpace(16),
+            Utils.verticalSpace(12),
             TabBar(
               padding: EdgeInsets.zero,
               controller: _tabController,
@@ -226,8 +227,8 @@ class _RegisterScreenState extends State<RegisterScreen>
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CustomImage(path: iconPath, width: 16, height: 16, color: color),
-          Utils.horizontalSpace(1),
+          CustomImage(path: iconPath, width: 14, height: 14, color: color),
+
           CustomText(text: label, color: color),
         ],
       ),

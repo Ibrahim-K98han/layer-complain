@@ -18,7 +18,12 @@ class CompanyTitleInput extends StatelessWidget {
         Utils.verticalSpace(12),
         Row(
           children: [
-            CustomText(text: 'Complaint Title', fontSize: 16),
+            CustomText(
+              text: 'Complaint Title',
+              fontSize: 14,
+              color: lightTextColor,
+            ),
+
             CustomText(
               text: ' (Max 150 Characters)',
               fontSize: 12,
@@ -26,6 +31,7 @@ class CompanyTitleInput extends StatelessWidget {
             ),
           ],
         ),
+        Utils.verticalSpace(4),
         widget ?? SizedBox.shrink(),
         Utils.verticalSpace(12),
       ],

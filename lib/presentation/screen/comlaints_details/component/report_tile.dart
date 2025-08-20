@@ -25,7 +25,7 @@ class ReportTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 4),
+        padding: const EdgeInsets.only(bottom: 8),
         child: Row(
           children: [
             Container(
@@ -45,7 +45,7 @@ class ReportTile extends StatelessWidget {
               ),
             ),
             Utils.horizontalSpace(2),
-            CustomText(text: text, fontSize: 11, color: lightTextColor),
+            CustomText(text: text, fontSize: 10, color: lightTextColor),
           ],
         ),
       ),

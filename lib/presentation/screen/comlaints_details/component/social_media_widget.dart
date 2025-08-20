@@ -16,8 +16,8 @@ class SocialMediaWidget extends StatelessWidget {
           padding: const EdgeInsets.only(right: 12),
           child: CustomImage(
             path: icon,
-            width: 32.w,
-            height: 32.h,
+            width: 36.w,
+            height: 36.h,
             fit: BoxFit.cover,
           ),
         ),

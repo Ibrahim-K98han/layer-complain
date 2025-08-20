@@ -38,7 +38,7 @@ class AddComplaintDataWidget extends StatelessWidget {
           ),
         ),
         Utils.verticalSpace(12),
-        CustomText(text: 'Phone Number', fontSize: 16),
+        CustomText(text: 'Phone Number', fontSize: 14,color: lightTextColor,),
         Utils.verticalSpace(4),
         IntlPhoneField(
           initialCountryCode: 'BD',
@@ -56,7 +56,7 @@ class AddComplaintDataWidget extends StatelessWidget {
         ///========= Company Title input ======///
         CompanyTitleInput(
           widget: TextFormField(
-            decoration: const InputDecoration(hintText: 'Complaint Title'),
+            decoration: const InputDecoration(hintText: 'Complaint Title',),
             keyboardType: TextInputType.emailAddress,
           ),
         ),
@@ -94,7 +94,9 @@ class AddComplaintDataWidget extends StatelessWidget {
         ),
 
         ///========= Add Image Section ======///
+
         AddImageSection(),
+
         CustomForm(
           label: 'Short Note',
           child: TextFormField(

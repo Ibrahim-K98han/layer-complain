@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:layer_complain/utils/k_images.dart';
+import 'package:layer_complain/widgets/circle_image.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/utils.dart';
@@ -55,7 +56,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 return Column(
                   children: [
                     Utils.verticalSpace(80.0),
-                    // Phone mockup with dynamic image
                     Padding(
                       padding: Utils.symmetric(h: 30.h),
                       child: Center(
@@ -65,7 +65,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           child: Stack(
                             clipBehavior: Clip.none,
                             children: [
-                              // Arched image container
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: CustomImage(
@@ -75,60 +74,135 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 ),
                               ),
 
-                              // Bottom badge
                               Positioned(
-                                bottom: -25,
-                                right: -20,
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: ShapeDecoration(
-                                    color: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    shadows: [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        blurRadius: 20,
-                                        offset: const Offset(5, 5),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      // Green circular background
-                                      Container(
-                                        width: 40,
-                                        height: 40,
-                                        padding: EdgeInsets.all(8),
-                                        decoration: const BoxDecoration(
-                                          color: greenLightColor,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: CustomImage(
-                                          path: KImages.badgeIcon,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-
-                                      // Texts
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: const [
-                                          CustomText(
-                                            text: 'Proof of Quality',
-                                            fontWeight: FontWeight.w600,
+                                bottom: _currentPage == 2 ? -25 : -10,
+                                right: _currentPage == 2 ? 60 : -20,
+                                child:
+                                    _currentPage == 0
+                                        ? ImageSubContainer(
+                                          imgColor: greenColor,
+                                          bgColor: greenLightColor,
+                                          image: KImages.badgeIcon,
+                                          title: 'Proof of Quality',
+                                          subTitle:
+                                              'Trust by Verified Outcomes',
+                                        )
+                                        : _currentPage == 1
+                                        ? Container(
+                                          padding: Utils.symmetric(
+                                            h: 15.0,
+                                            v: 14.0,
                                           ),
-                                          CustomText(
-                                            text: 'Trust by Verified Outcomes',
-                                            fontSize: 12,
+                                          decoration: BoxDecoration(
+                                            color: whiteColor,
+                                            borderRadius: BorderRadius.circular(
+                                              50.r,
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                          child: Row(
+                                            children: [
+                                              CustomText(
+                                                text: '58M+ ',
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              CustomText(text: 'Happy Clients'),
+                                              Utils.horizontalSpace(8),
+                                              Stack(
+                                                children: [
+                                                  SizedBox(
+                                                    width: 105,
+                                                    height: 30,
+                                                  ),
+                                                  Positioned(
+                                                    child: CustomImage(
+                                                      path: KImages.person,
+                                                      width: 28.w,
+                                                      height: 28.h,
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    left: 20,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          color: whiteColor,
+                                                          width: 2,
+                                                        ),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: CustomImage(
+                                                        path: KImages.person,
+                                                        width: 28.w,
+                                                        height: 28.h,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    left: 40,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          color: whiteColor,
+                                                          width: 2,
+                                                        ),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: CustomImage(
+                                                        path: KImages.person,
+                                                        width: 28.w,
+                                                        height: 28.h,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    left: 60,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          color: whiteColor,
+                                                          width: 2,
+                                                        ),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: CustomImage(
+                                                        path: KImages.person,
+                                                        width: 28.w,
+                                                        height: 28.h,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                    left: 80,
+                                                    child: Container(
+                                                      padding: Utils.all(value: 4),
+                                                      decoration: BoxDecoration(
+                                                        color: secondaryColor,
+                                                        border: Border.all(
+                                                          color: whiteColor,
+                                                          width: 2,
+                                                        ),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: CustomImage(
+                                                        path: KImages.addCircleIcon,
+                                                        width: 16.w,
+                                                        height: 16.h,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                        : ImageSubContainer(
+                                          imgColor: yellowColor,
+                                          bgColor: yellowLightColor,
+                                          image: KImages.badgeIcon,
+                                          title: 'Safe and secure',
+                                          subTitle:
+                                              'Privacy First. Security Always.',
+                                        ),
                               ),
                             ],
                           ),
@@ -297,6 +371,60 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ImageSubContainer extends StatelessWidget {
+  const ImageSubContainer({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.subTitle,
+    required this.bgColor,
+    required this.imgColor,
+  });
+
+  final String image;
+  final String title;
+  final String subTitle;
+  final Color bgColor;
+  final Color imgColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shadows: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 20,
+            offset: const Offset(5, 5),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
+            child: CustomImage(path: image, color: imgColor),
+          ),
+          Utils.horizontalSpace(10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(text: title, fontWeight: FontWeight.w600),
+              CustomText(text: subTitle, fontSize: 12),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:layer_complain/routes/route_names.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';
@@ -33,7 +34,7 @@ class LawyerBanner extends StatelessWidget {
                 width: double.infinity,
                 height: 125.h,
                 decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(0.2),
+                  color: primaryColor.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
               ),
@@ -53,18 +54,28 @@ class LawyerBanner extends StatelessWidget {
                         Row(
                           children: [
                             CustomText(
-                              text: 'Browser a Lawyer',
+                              text: 'Become a Lawyer',
                               color: whiteColor,
                               fontSize: 11,
                             ),
                             Utils.horizontalSpace(12.0),
-                            Container(
-                              padding: Utils.symmetric(h: 8.0, v: 4.0),
-                              decoration: BoxDecoration(
-                                color: yellowColor,
-                                borderRadius: BorderRadius.circular(50.r),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  RouteNames.becomeALawyerScreen,
+                                );
+                              },
+                              child: Container(
+                                padding: Utils.symmetric(h: 8.0, v: 4.0),
+                                decoration: BoxDecoration(
+                                  color: yellowColor,
+                                  borderRadius: BorderRadius.circular(50.r),
+                                ),
+                                child: CustomImage(
+                                  path: KImages.arrowRightIcon,
+                                ),
                               ),
-                              child: CustomImage(path: KImages.arrowRightIcon),
                             ),
                           ],
                         ),

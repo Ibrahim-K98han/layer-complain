@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:layer_complain/routes/route_names.dart';
 import 'package:layer_complain/utils/constraints.dart';
 import 'package:layer_complain/utils/k_images.dart';
 import 'package:layer_complain/utils/utils.dart';
@@ -21,7 +22,8 @@ class ComplaintsDetailsScreen extends StatefulWidget {
   const ComplaintsDetailsScreen({super.key});
 
   @override
-  State<ComplaintsDetailsScreen> createState() => _ComplaintsDetailsScreenState();
+  State<ComplaintsDetailsScreen> createState() =>
+      _ComplaintsDetailsScreenState();
 }
 
 class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
@@ -42,12 +44,17 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                 items: [
                   PopupMenuItem(
                     value: "message",
-                    child: Row(
-                      children: [
-                        CustomImage(path: KImages.messageDubleIcon),
-                        Utils.horizontalSpace(8),
-                        CustomText(text: 'Send message'),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteNames.messageScreen);
+                      },
+                      child: Row(
+                        children: [
+                          CustomImage(path: KImages.messageDubleIcon),
+                          Utils.horizontalSpace(8),
+                          CustomText(text: 'Send message'),
+                        ],
+                      ),
                     ),
                   ),
                   PopupMenuItem(
@@ -206,6 +213,7 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
+                Utils.verticalSpace(4),
                 TextFormField(
                   maxLines: 4,
                   decoration: const InputDecoration(hintText: 'Write Comment'),
@@ -216,7 +224,7 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      padding: Utils.symmetric(h: 30.0, v: 10.0),
+                      padding: Utils.symmetric(h: 30.0, v: 14.0),
                       decoration: BoxDecoration(
                         color: textColor,
                         borderRadius: BorderRadius.circular(50.r),
@@ -229,6 +237,7 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                 ),
               ],
             ),
+            Utils.verticalSpace(12),
           ],
         ),
       ),

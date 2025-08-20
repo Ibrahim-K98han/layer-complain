@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../routes/route_names.dart';
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';
 import '../../../../utils/utils.dart';
@@ -36,7 +37,7 @@ class DetailsBannerSection extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: Utils.symmetric(h: 16.0),
+              padding: Utils.symmetric(h: 12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,18 +52,26 @@ class DetailsBannerSection extends StatelessWidget {
                       Row(
                         children: [
                           CustomText(
-                            text: 'Browser a Lawyer',
+                            text: 'Become a Lawyer',
                             color: whiteColor,
                             fontSize: 11,
                           ),
                           Utils.horizontalSpace(12.0),
-                          Container(
-                            padding: Utils.symmetric(h: 8.0, v: 4.0),
-                            decoration: BoxDecoration(
-                              color: yellowColor,
-                              borderRadius: BorderRadius.circular(50.r),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                RouteNames.becomeALawyerScreen,
+                              );
+                            },
+                            child: Container(
+                              padding: Utils.symmetric(h: 8.0, v: 4.0),
+                              decoration: BoxDecoration(
+                                color: yellowColor,
+                                borderRadius: BorderRadius.circular(50.r),
+                              ),
+                              child: CustomImage(path: KImages.arrowRightIcon),
                             ),
-                            child: CustomImage(path: KImages.arrowRightIcon),
                           ),
                         ],
                       ),

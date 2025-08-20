@@ -20,7 +20,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
   Widget build(BuildContext context) {
     return SliverAppBar(
       automaticallyImplyLeading: false,
-      toolbarHeight: Utils.vSize(120.0),
+      toolbarHeight: Utils.vSize(130.0),
       backgroundColor: secondaryColor,
       pinned: true,
       flexibleSpace: Stack(
@@ -105,7 +105,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
             ),
           ),
           Positioned(
-            bottom: -44.0,
+            bottom: -34.0,
             left: 20.0,
             right: 20.0,
             child: GestureDetector(
@@ -144,7 +144,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                           width: 20.w,
                           height: 20.h,
                         ),
-                        Utils.horizontalSpace(8),
+                        Utils.horizontalSpace(6),
                         CustomText(
                           text: 'Search by Company, Product...',
                           color: hintTextColor,
@@ -152,15 +152,19 @@ class _HomeAppBarState extends State<HomeAppBar> {
                       ],
                     ),
                     Container(
-                      padding: Utils.symmetric(h: 12.0, v: 10.0),
+                      padding: Utils.symmetric(h: 8.0, v: 10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.r),
                         color: searchButtonColor,
                       ),
                       child: Row(
                         children: [
-                          CustomText(text: 'Search', color: whiteColor),
-                          Utils.horizontalSpace(4.0),
+                          CustomText(
+                            text: 'Search',
+                            color: whiteColor,
+                            fontSize: 12,
+                          ),
+                          Utils.horizontalSpace(2.0),
                           CustomImage(path: KImages.searchIcon),
                         ],
                       ),

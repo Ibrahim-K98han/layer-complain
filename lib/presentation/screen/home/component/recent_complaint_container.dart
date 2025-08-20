@@ -27,13 +27,13 @@ class RecentComplaintContainer extends StatelessWidget {
         Navigator.pushNamed(context, RouteNames.complaintsDetailsScreen);
       },
       child: Container(
-        height: 140.h,
+        height: 132.h,
         width: containerWidth?.w,
         margin: EdgeInsets.symmetric(
           horizontal: horizontalMargin ?? 8.0,
           vertical: verticalMargin ?? 6.0,
         ),
-        padding: Utils.symmetric(h: 12.0, v: 8.0),
+        padding: Utils.symmetric(h: 12.0, v: 14.0),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(8.r),

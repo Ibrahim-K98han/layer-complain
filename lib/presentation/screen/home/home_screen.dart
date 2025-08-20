@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:layer_complain/presentation/screen/home/component/home_app_bar.dart';
 import 'package:layer_complain/presentation/screen/home/component/home_banner_section.dart';
-import 'package:layer_complain/presentation/screen/home/component/recent_complaints_section.dart';
+import 'package:layer_complain/routes/route_names.dart';
 import 'package:layer_complain/utils/constraints.dart';
+import 'package:layer_complain/utils/k_images.dart';
 import 'package:layer_complain/utils/utils.dart';
-import 'package:layer_complain/widgets/custom_text.dart';
 
+import '../../../widgets/heading_text.dart';
+import 'component/recent_complaint_container.dart';
 import 'component/result_can_trust_section.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,6 +19,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<String> sliderData = [KImages.banners, KImages.banners];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,16 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ResultCanTrustSection(),
 
           ///============= Recent Complaints Section ===========///
-          RecentComplaintsSection(
-            containerWidth: 248,
-            title: 'Recent Complaints',
-            widget: CustomText(
-              text: 'View All',
-              color: hintTextColor,
-              fontSize: 12,
+          SliverToBoxAdapter(
+            child: HeadingText(
+              title: 'Recent Complaints',
+              subTitle: 'View All',
+              onTap: () {
+                Navigator.pushNamed(context, RouteNames.complainScreen);
+              },
             ),
-            direction: Axis.horizontal,
-            scrollHeight: 150.h,
+          ),
+          SliverToBoxAdapter(child: Utils.verticalSpace(8)),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 150.h,
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return RecentComplaintContainer(containerWidth: 248.w);
+                },
+              ),
+            ),
           ),
 
           /// ============ Banner Section ================///
@@ -47,13 +65,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
           ///============ All Complaints Section =============///
           SliverToBoxAdapter(child: Utils.verticalSpace(20)),
-          RecentComplaintsSection(
-            containerWidth: 335,
-            title: 'All Complaints',
-            direction: Axis.vertical,
-            verticalMargin: 10.0,
-            horizontalMargin: 0.0,
-            scrollHeight: 400.h,
+          SliverToBoxAdapter(
+            child: HeadingText(
+              title: 'All Complaints',
+              subTitle: '',
+              onTap: () {},
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ListView.builder(
+              padding: Utils.symmetric(h: 10.0),
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return RecentComplaintContainer();
+              },
+            ),
           ),
           SliverToBoxAdapter(child: Utils.verticalSpace(100)),
         ],

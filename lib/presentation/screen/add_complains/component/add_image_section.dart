@@ -20,6 +20,7 @@ class AddImageSection extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
+        Utils.verticalSpace(8),
         Utils.horizontalLine(),
         Utils.verticalSpace(12),
         CustomText(text: 'Upload (JPEG, PDF & PNG Max. Size 10MB)'),

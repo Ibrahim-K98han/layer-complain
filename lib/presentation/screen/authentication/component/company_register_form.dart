@@ -24,8 +24,8 @@ class _CompanyRegisterFormState extends State<CompanyRegisterForm> {
   String? selectedStateValue;
 
   final List<String> countryValue = ['Bangladesh', 'Pakistan', 'Afghanistan'];
-  final List<String> cityValue = ['Dhaka', 'Dhaka', 'Dhaka'];
-  final List<String> stateValue = ['Dhaka', 'Dhaka', 'Dhaka'];
+  final List<String> cityValue = ['Dhaka', 'Khulna', 'Chittagong'];
+  final List<String> stateValue = ['Mirpur', 'Dhanmondi', 'Uttara'];
 
   @override
   Widget build(BuildContext context) {
