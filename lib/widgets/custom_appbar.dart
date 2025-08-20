@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.visibleLeading = true,
     this.iconBgColor = primaryColor,
     this.action = const [],
-    this.titleCenter = false,
+    this.titleCenter = true,
   });
 
   final String title;
@@ -39,31 +39,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: titleCenter,
       elevation: 0.0,
       automaticallyImplyLeading: false,
-      title: Row(
-        children: [
-          if (visibleLeading)
-            GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
-              child: Container(
-                // height: 48.w,
-                // width: 48.w,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+      leading:
+          visibleLeading
+              ? GestureDetector(
+                onTap: onTap ?? () => Navigator.of(context).pop(),
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: CustomImage(path: KImages.arrowLeftIcon),
                 ),
-                child: CustomImage(path: KImages.arrowLeftIcon),
-              ),
-            ),
-          Utils.horizontalSpace(horSpace),
-          CustomText(
-            textAlign: TextAlign.center,
-            text: title,
-            fontSize: 18.0,
-            fontFamily: bold700,
-            fontWeight: FontWeight.w500,
-            color: textColor,
-          ),
-        ],
+              )
+              : null,
+      title: CustomText(
+        textAlign: TextAlign.center,
+        text: title,
+        fontSize: 18.0,
+        fontFamily: bold700,
+        fontWeight: FontWeight.w500,
+        color: textColo,
       ),
       actions: action,
       toolbarHeight: Utils.vSize(70.0),

@@ -22,7 +22,7 @@ class ProfileItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: Utils.only(bottom: 14),
+        padding: Utils.only(bottom: 16),
         child: Row(
           children: [
             CustomImage(
@@ -31,7 +31,7 @@ class ProfileItem extends StatelessWidget {
               height: 24.h,
               fit: BoxFit.cover,
             ),
-            Utils.horizontalSpace(8),
+            Utils.horizontalSpace(10),
             CustomText(text: title, fontWeight: FontWeight.w500),
           ],
         ),

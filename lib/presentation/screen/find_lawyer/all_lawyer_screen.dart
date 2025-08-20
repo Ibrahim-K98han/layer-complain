@@ -283,7 +283,7 @@ class _FilterBottomSheetAllLawyerState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: Utils.symmetric(v: 8.0, h: 50.0),
+                padding: Utils.symmetric(v: 14.0, h: 50.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6.r),
                   border: Border.all(color: inputFillBorderColor),
@@ -291,7 +291,7 @@ class _FilterBottomSheetAllLawyerState
                 child: CustomText(text: 'Clear Filter'),
               ),
               Container(
-                padding: Utils.symmetric(v: 8.0, h: 50.0),
+                padding: Utils.symmetric(v: 14.0, h: 50.0),
                 decoration: BoxDecoration(
                   color: primaryColor,
                   borderRadius: BorderRadius.circular(6.r),

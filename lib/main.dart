@@ -16,20 +16,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await SystemChrome.setPreferredOrientations([
-//     DeviceOrientation.portraitUp,
-//     DeviceOrientation.portraitDown,
-//   ]);
-//   runApp(
-//     DevicePreview(
-//       enabled: !kReleaseMode,
-//       builder: (context) => MyApp(), // Wrap your app
-//     ),
-//   );
-// }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -41,9 +27,6 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       useInheritedMediaQuery: true,
       child: MaterialApp(
-        // useInheritedMediaQuery: true,
-        // locale: DevicePreview.locale(context),
-        // builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         title: KString.appName,
         initialRoute: RouteNames.splashScreen,

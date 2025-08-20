@@ -62,9 +62,7 @@ class TopLawyerContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140.h,
-      width: 310.w,
-      padding: Utils.symmetric(v: 4.0, h: 4.0),
+      padding: Utils.symmetric(v: 4.0, h: 8.0),
       margin: EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: whiteColor,
@@ -121,7 +119,7 @@ class TopLawyerContainer extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      width: 150,
+                      width: 125.w,
                       child: CustomText(
                         maxLine: 1,
                         overflow: TextOverflow.ellipsis,
@@ -130,7 +128,7 @@ class TopLawyerContainer extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Utils.horizontalSpace(4),
+                    Utils.horizontalSpace(2),
                     CustomImage(
                       path: KImages.verifyIcon,
                       width: 14.w,
@@ -140,7 +138,13 @@ class TopLawyerContainer extends StatelessWidget {
                   ],
                 ),
                 CustomText(text: 'Consumer Rights'),
-                Utils.verticalSpace(12),
+                Utils.verticalSpace(8),
+                Container(
+                  width: 180.w,
+                  height: 1.h,
+                  decoration: BoxDecoration(color: hintTextColor.withOpacity(0.2)),
+                ),
+                Utils.verticalSpace(8),
                 Row(
                   children: [
                     CustomImage(path: KImages.locationIcon),

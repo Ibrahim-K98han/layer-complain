@@ -50,8 +50,9 @@ class CommentsContainer extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CustomImage(path: KImages.hardIcon),
-                  CustomText(text: 'Helpful 2'),
+                  CustomImage(path: KImages.hardIcon,width: 14.w,height: 14.h,),
+                  Utils.horizontalSpace(4),
+                  CustomText(text: 'Helpful 2',fontSize: 11,),
                 ],
               ),
               CustomImage(path: KImages.shareIcon),

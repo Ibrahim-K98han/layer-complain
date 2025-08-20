@@ -25,9 +25,12 @@ class ReportDialog {
       barrierDismissible: false,
       builder:
           (context) => AlertDialog(
+            titlePadding: EdgeInsets.symmetric(horizontal: 8.0),
             backgroundColor: whiteColor,
+            actionsPadding: EdgeInsets.zero,
+            buttonPadding: EdgeInsets.zero,
             contentPadding: EdgeInsets.symmetric(
-              horizontal: 12.0,
+              horizontal: 8.0,
               vertical: 4.0,
             ),
             shape: RoundedRectangleBorder(
@@ -46,6 +49,7 @@ class ReportDialog {
                       ),
                     ),
                     IconButton(
+                      padding: EdgeInsets.zero,
                       icon: Icon(Icons.close, size: 20, color: primaryColor),
                       onPressed: () => Navigator.pop(context),
                     ),
@@ -140,23 +144,28 @@ class ReportDialog {
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                padding: Utils.symmetric(h: 30.0, v: 10.0),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: inputFillBorderColor,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  padding: Utils.symmetric(h: 30.0, v: 14.0),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: inputFillBorderColor,
+                                    ),
+                                    borderRadius: BorderRadius.circular(50.r),
                                   ),
-                                  borderRadius: BorderRadius.circular(50.r),
-                                ),
-                                child: Center(
-                                  child: CustomText(text: 'Cancel'),
+                                  child: Center(
+                                    child: CustomText(text: 'Cancel'),
+                                  ),
                                 ),
                               ),
                             ),
                             Utils.horizontalSpace(8.0),
                             Expanded(
                               child: Container(
-                                padding: Utils.symmetric(h: 30.0, v: 10.0),
+                                padding: Utils.symmetric(h: 30.0, v: 14.0),
                                 decoration: BoxDecoration(
                                   color: textColor,
                                   borderRadius: BorderRadius.circular(50.r),

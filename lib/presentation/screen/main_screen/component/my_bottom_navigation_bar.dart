@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:layer_complain/utils/constraints.dart';
 import 'package:layer_complain/utils/utils.dart';
@@ -22,15 +23,17 @@ class MyBottomNavigationBar extends StatelessWidget {
       stream: controller.naveListener.stream,
       builder: (context, snapshot) {
         final selectedIndex = snapshot.data ?? 0;
-
         return BottomAppBar(
           shape: const CircularNotchedRectangle(),
-          notchMargin: 8.0,
-          color: Colors.white,
+          notchMargin: 10.0,
+          color: whiteColor,
+          clipBehavior: Clip.antiAlias,
           elevation: 8,
           child: Container(
+            color: whiteColor,
+            width: 100.w,
             height: Platform.isAndroid ? 110 : 110,
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 6,vertical: 6),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

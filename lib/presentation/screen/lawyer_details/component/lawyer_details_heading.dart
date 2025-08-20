@@ -20,8 +20,8 @@ class LawyerDetailsHeading extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
           child: CustomImage(
             path: KImages.lawyerImage,
-            width: 110.w,
-            height: 120.h,
+            width: 100.w,
+            height: 110.h,
             fit: BoxFit.cover,
           ),
         ),

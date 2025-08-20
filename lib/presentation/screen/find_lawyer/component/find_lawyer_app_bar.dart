@@ -24,9 +24,71 @@ class _FindLawyerAppBarState extends State<FindLawyerAppBar> {
       backgroundColor: secondaryColor,
       pinned: true,
       flexibleSpace: Stack(
-        fit: StackFit.loose,
+        fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
+          // Top bar with custom leading and actions
+          Positioned(
+            top: MediaQuery.of(context).padding.top,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 56.h,
+              padding: Utils.symmetric(h: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Custom back button
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: CustomImage(path: KImages.arrowLeftIcon),
+                  ),
+                  // Custom top right actions
+                  // Row(
+                  //   children: [
+                  //     GestureDetector(
+                  //       onTap: () {
+                  //         // Handle favorite action
+                  //       },
+                  //       child: Container(
+                  //         padding: Utils.all(value: 8),
+                  //         margin: Utils.only(right: 8.0),
+                  //         decoration: BoxDecoration(
+                  //           color: whiteColor.withOpacity(0.2),
+                  //           borderRadius: BorderRadius.circular(12.r),
+                  //         ),
+                  //         child: Icon(
+                  //           Icons.favorite_border,
+                  //           color: whiteColor,
+                  //           size: 20.sp,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     GestureDetector(
+                  //       onTap: () {
+                  //         // Handle menu action
+                  //       },
+                  //       child: Container(
+                  //         padding: Utils.all(value: 8),
+                  //         decoration: BoxDecoration(
+                  //           color: whiteColor.withOpacity(0.2),
+                  //           borderRadius: BorderRadius.circular(12.r),
+                  //         ),
+                  //         child: Icon(
+                  //           Icons.more_vert,
+                  //           color: whiteColor,
+                  //           size: 20.sp,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                ],
+              ),
+            ),
+          ),
+
+          // Title section
           FlexibleSpaceBar(
             centerTitle: true,
             titlePadding: Utils.only(top: 60.0, left: 20.0, right: 20.0),
@@ -42,8 +104,10 @@ class _FindLawyerAppBarState extends State<FindLawyerAppBar> {
               ],
             ),
           ),
+
+          // Search bar (your existing code)
           Positioned(
-            bottom: -44.0,
+            bottom: -38.0,
             left: 20.0,
             right: 20.0,
             child: GestureDetector(
@@ -82,7 +146,7 @@ class _FindLawyerAppBarState extends State<FindLawyerAppBar> {
                           width: 20.w,
                           height: 20.h,
                         ),
-                        Utils.horizontalSpace(8),
+                        Utils.horizontalSpace(4),
                         CustomText(
                           text: 'Search by Company, Product...',
                           color: hintTextColor,
@@ -90,15 +154,19 @@ class _FindLawyerAppBarState extends State<FindLawyerAppBar> {
                       ],
                     ),
                     Container(
-                      padding: Utils.symmetric(h: 12.0, v: 10.0),
+                      padding: Utils.symmetric(h: 6.0, v: 10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.r),
                         color: primaryColor,
                       ),
                       child: Row(
                         children: [
-                          CustomText(text: 'Search', color: whiteColor),
-                          Utils.horizontalSpace(4.0),
+                          CustomText(
+                            text: 'Search',
+                            color: whiteColor,
+                            fontSize: 12,
+                          ),
+                          Utils.horizontalSpace(2.0),
                           CustomImage(path: KImages.searchIcon),
                         ],
                       ),

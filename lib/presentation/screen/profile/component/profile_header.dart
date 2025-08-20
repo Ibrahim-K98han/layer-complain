@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:layer_complain/presentation/screen/profile/component/profile_header_complain_count.dart';
+import 'package:layer_complain/routes/route_names.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';
@@ -35,7 +36,12 @@ class ProfileHeader extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
             Utils.horizontalSpace(8),
-            CustomImage(path: KImages.editIcon),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RouteNames.profileSettingsScreen);
+               },
+              child: CustomImage(path: KImages.editIcon),
+            ),
           ],
         ),
         CustomText(

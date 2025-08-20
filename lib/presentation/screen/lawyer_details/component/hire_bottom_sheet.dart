@@ -213,7 +213,9 @@ class _HireBottomSheetState extends State<HireBottomSheet> {
                         Utils.verticalSpace(20),
                         PrimaryButton(
                           text: 'That’s Nice',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           bgColor: textColor,
                         ),
                       ],

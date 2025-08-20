@@ -1,15 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:layer_complain/utils/k_images.dart';
-import 'package:layer_complain/widgets/custom_image.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/custom_form.dart';
 import '../../../../widgets/custom_text.dart';
+import '../../../../widgets/language_widget.dart';
+import '../../../../widgets/professional_title_widget.dart';
 
 class LawyerRegisterForm extends StatefulWidget {
   const LawyerRegisterForm({super.key});
@@ -247,58 +246,4 @@ class _LawyerRegisterFormState extends State<LawyerRegisterForm> {
   }
 }
 
-class ProfessionalTitle extends StatelessWidget {
-  const ProfessionalTitle({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: Utils.symmetric(h: 8.0, v: 4.0),
-      decoration: BoxDecoration(
-        color: chipColor,
-        borderRadius: BorderRadius.circular(50.r),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CustomText(text: 'Consumer Rights'),
-          Utils.horizontalSpace(4),
-          CustomImage(
-            path: KImages.closeBlackIcon,
-            width: 10.w,
-            height: 10.h,
-            fit: BoxFit.cover,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class LanguageWidget extends StatelessWidget {
-  const LanguageWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: Utils.symmetric(h: 8.0, v: 4.0),
-      decoration: BoxDecoration(
-        color: chipColor,
-        borderRadius: BorderRadius.circular(50.r),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CustomText(text: 'English'),
-          Utils.horizontalSpace(4),
-          CustomImage(
-            path: KImages.closeBlackIcon,
-            width: 10.w,
-            height: 10.h,
-            fit: BoxFit.cover,
-          ),
-        ],
-      ),
-    );
-  }
-}

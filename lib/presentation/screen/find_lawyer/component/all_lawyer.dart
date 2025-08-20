@@ -18,7 +18,6 @@ class AllLawyer extends StatelessWidget {
     return Column(
       children: [
         title ?? SizedBox.shrink(),
-
         ListView.builder(
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.zero,
@@ -128,7 +127,15 @@ class AllLawyerContainer extends StatelessWidget {
                       ],
                     ),
                     CustomText(text: 'Consumer Rights'),
-                    Utils.verticalSpace(12),
+                    Utils.verticalSpace(8),
+                    Container(
+                      height: 1.h,
+                      width: 180.w,
+                      decoration: BoxDecoration(
+                        color: lightTextColor.withOpacity(0.1),
+                      ),
+                    ),
+                    Utils.verticalSpace(8),
                     Row(
                       children: [
                         CustomImage(path: KImages.locationIcon),
