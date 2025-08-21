@@ -173,7 +173,7 @@ class _LawyerRegisterFormState extends State<LawyerRegisterForm> {
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Password',
-                suffixIcon: Icon(Icons.visibility_outlined),
+                suffixIcon: Icon(Icons.visibility_outlined,size: 20,),
               ),
             ),
           ),
@@ -184,7 +184,7 @@ class _LawyerRegisterFormState extends State<LawyerRegisterForm> {
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Confirm Password',
-                suffixIcon: Icon(Icons.visibility_outlined),
+                suffixIcon: Icon(Icons.visibility_outlined,size: 20,),
               ),
             ),
           ),

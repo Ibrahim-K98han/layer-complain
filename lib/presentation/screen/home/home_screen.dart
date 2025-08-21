@@ -4,7 +4,6 @@ import 'package:layer_complain/presentation/screen/home/component/home_app_bar.d
 import 'package:layer_complain/presentation/screen/home/component/home_banner_section.dart';
 import 'package:layer_complain/routes/route_names.dart';
 import 'package:layer_complain/utils/constraints.dart';
-import 'package:layer_complain/utils/k_images.dart';
 import 'package:layer_complain/utils/utils.dart';
 
 import '../../../widgets/heading_text.dart';
@@ -19,8 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> sliderData = [KImages.banners, KImages.banners];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -46,7 +46,8 @@ class RouteNames {
   static const String loginScreen = '/loginScreen';
   static const String registerScreen = '/registerScreen';
   static const String verifyIdentityScreen = '/verifyIdentityScreen';
-  static const String phoneNumberVerifyScreen = '/phoneNumberVerifyScreen';
+  static const String phoneNumberOrEmailVerifyScreen =
+      '/phoneNumberOrEmailVerifyScreen';
   static const String otpScreen = '/otpScreen';
   static const String otpSuccess = '/otpSuccess';
   static const String forgotPasswordScreen = '/forgotPasswordScreen';
@@ -108,7 +109,7 @@ class RouteNames {
           settings: settings,
           builder: (_) => const VerifyIdentityScreen(),
         );
-      case RouteNames.phoneNumberVerifyScreen:
+      case RouteNames.phoneNumberOrEmailVerifyScreen:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const PhoneNumberOrEmailVerifyScreen(),

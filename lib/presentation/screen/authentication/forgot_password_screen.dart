@@ -19,6 +19,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  int selectedOption = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,14 +60,24 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             Utils.verticalSpace(20),
             IdentityPhoneEmail(
-              onTap: () {},
+              isSelected: selectedOption == 0,
+              onTap: () {
+                setState(() {
+                  selectedOption = 0;
+                });
+              },
               icon: KImages.emailIcon,
               title: 'Email',
               subTitle: 'Verify with your email',
             ),
             Utils.verticalSpace(16),
             IdentityPhoneEmail(
-              onTap: () {},
+              isSelected: selectedOption == 1,
+              onTap: () {
+                setState(() {
+                  selectedOption = 1;
+                });
+              },
               icon: KImages.phoneIcon,
               title: 'Phone Number',
               subTitle: 'Verify with your phone number',

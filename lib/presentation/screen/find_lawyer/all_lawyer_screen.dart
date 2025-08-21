@@ -9,6 +9,7 @@ import 'package:layer_complain/widgets/custom_image.dart';
 import '../../../utils/utils.dart';
 import '../../../widgets/custom_form.dart';
 import '../../../widgets/custom_text.dart';
+import 'component/lawyer_container.dart';
 
 class AllLawyerScreen extends StatefulWidget {
   const AllLawyerScreen({super.key});
@@ -70,7 +71,10 @@ class _AllLawyerScreenState extends State<AllLawyerScreen> {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
-          return AllLawyerContainer();
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            child: LawyerContainer(horizontalMargin: 12.0,),
+          );
         },
       ),
     );

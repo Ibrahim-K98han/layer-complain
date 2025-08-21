@@ -58,7 +58,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: 'Password here',
                       suffixIcon: IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.visibility_outlined, color: textColor),
+                        icon: Icon(
+                          Icons.visibility_outlined,
+                          color: textColor,
+                          size: 20,
+                        ),
                       ),
                     ),
                   ),

@@ -17,6 +17,8 @@ class VerifyIdentityScreen extends StatefulWidget {
 }
 
 class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
+  int selectedOption = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,10 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
         child: PrimaryButton(
           text: 'Continue',
           onPressed: () {
-            Navigator.pushNamed(context, RouteNames.phoneNumberVerifyScreen);
+            Navigator.pushNamed(
+              context,
+              RouteNames.phoneNumberOrEmailVerifyScreen,
+            );
           },
         ),
       ),
@@ -50,14 +55,24 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
             ),
             Utils.verticalSpace(20),
             IdentityPhoneEmail(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  selectedOption = 0;
+                });
+              },
               icon: KImages.emailIcon,
               title: 'Email',
               subTitle: 'Verify with your email',
+              isSelected: selectedOption == 0,
             ),
             Utils.verticalSpace(16),
             IdentityPhoneEmail(
-              onTap: () {},
+              isSelected: selectedOption == 1,
+              onTap: () {
+                setState(() {
+                  selectedOption = 1;
+                });
+              },
               icon: KImages.phoneIcon,
               title: 'Phone Number',
               subTitle: 'Verify with your phone number',
