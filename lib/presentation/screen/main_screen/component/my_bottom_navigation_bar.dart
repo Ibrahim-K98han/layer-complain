@@ -33,7 +33,7 @@ class MyBottomNavigationBar extends StatelessWidget {
             color: whiteColor,
             width: 100.w,
             height: Platform.isAndroid ? 110 : 110,
-            padding: EdgeInsets.symmetric(horizontal: 6,vertical: 6),
+            padding: EdgeInsets.symmetric(horizontal: 6,vertical: 2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -94,22 +94,20 @@ class MyBottomNavigationBar extends StatelessWidget {
   ) {
     return GestureDetector(
       onTap: () => controller.changeNav(index),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 0.0),
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              selectedIndex == index ? activeIcon : icon,
-              height: 24,
-            ),
-            Utils.verticalSpace(4.0),
-            CustomText(
-              text: text,
-              fontSize: 12,
-              color: selectedIndex == index ? primaryColor : hintTextColor,
-            ),
-          ],
-        ),
+      child: Column(
+        children: [
+          SvgPicture.asset(
+            selectedIndex == index ? activeIcon : icon,
+            height: 22.h,
+            width: 22.w,
+          ),
+          Utils.verticalSpace(2.0),
+          CustomText(
+            text: text,
+            fontSize: 12,
+            color: selectedIndex == index ? primaryColor : hintTextColor,
+          ),
+        ],
       ),
     );
   }

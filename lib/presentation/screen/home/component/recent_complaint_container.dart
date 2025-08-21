@@ -27,7 +27,7 @@ class RecentComplaintContainer extends StatelessWidget {
         Navigator.pushNamed(context, RouteNames.complaintsDetailsScreen);
       },
       child: Container(
-        height: 132.h,
+        // height: 132.h,
         width: containerWidth?.w,
         margin: EdgeInsets.symmetric(
           horizontal: horizontalMargin ?? 8.0,

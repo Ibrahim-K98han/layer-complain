@@ -14,12 +14,14 @@ class IdentityPhoneEmail extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.onTap,
+    required this.isSelected,
   });
 
   final String icon;
   final String title;
   final String subTitle;
   final VoidCallback onTap;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class IdentityPhoneEmail extends StatelessWidget {
                 ),
               ],
             ),
-            CustomImage(path: KImages.rightMarkIcon),
+            if (isSelected) CustomImage(path: KImages.rightMarkIcon),
           ],
         ),
       ),

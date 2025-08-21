@@ -22,7 +22,7 @@ class ProfileItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: Utils.only(bottom: 16),
+        padding: Utils.only(bottom: 20),
         child: Row(
           children: [
             CustomImage(
