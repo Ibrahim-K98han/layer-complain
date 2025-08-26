@@ -4,50 +4,64 @@ import 'package:layer_complain/utils/k_images.dart';
 import 'package:layer_complain/utils/utils.dart';
 import 'package:layer_complain/widgets/custom_image.dart';
 
-class HomeBannerSection extends StatelessWidget {
-  const HomeBannerSection({super.key});
+class CarouselExample extends StatefulWidget {
+  const CarouselExample({super.key});
+
+  @override
+  State<CarouselExample> createState() => _CarouselExampleState();
+}
+
+class _CarouselExampleState extends State<CarouselExample> {
+  final CarouselController controller = CarouselController(initialItem: 1);
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Column(
-        children: [
-          Utils.verticalSpace(20),
-          SizedBox(
-            height: 100.h,
-            child: ListView.builder(
-              itemCount: 4,
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return ShowBanner();
-              },
-            ),
-          ),
-        ],
+    final double height = MediaQuery.sizeOf(context).height;
+    return Padding(
+      padding: Utils.symmetric(h: 10.0),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: height * 0.15),
+        child: CarouselView.weighted(
+          controller: controller,
+          itemSnapping: true,
+          flexWeights: const <int>[7, 1],
+          children:
+              ImageInfo.values.map((ImageInfo image) {
+                return HeroLayoutCard(imageInfo: image);
+              }).toList(),
+        ),
       ),
     );
   }
 }
 
-class ShowBanner extends StatelessWidget {
-  const ShowBanner({super.key});
+class HeroLayoutCard extends StatelessWidget {
+  const HeroLayoutCard({super.key, required this.imageInfo});
+
+  final ImageInfo imageInfo;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: Utils.symmetric(h: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(6.r),
-        child: CustomImage(
-          path: KImages.banners,
-          width: 290.w,
-          height: 100.h,
-          fit: BoxFit.cover,
-        ),
-      ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(6.r), // only here
+      child: CustomImage(path: imageInfo.title, fit: BoxFit.cover),
     );
   }
+}
+
+enum ImageInfo {
+  image0(KImages.banners),
+  image1(KImages.banners),
+  image2(KImages.banners),
+  image3(KImages.banners);
+
+  const ImageInfo(this.title);
+
+  final String title;
 }

@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../utils/constraints.dart';
+import '../../../../utils/k_images.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/custom_form.dart';
+import '../../../../widgets/custom_image.dart';
 import '../../../../widgets/custom_text.dart';
 
-class FilterBottomSheet extends StatefulWidget {
-  const FilterBottomSheet({super.key});
+class FilterBottomSheetAllLawyer extends StatefulWidget {
+  const FilterBottomSheetAllLawyer({super.key});
 
   @override
-  State<FilterBottomSheet> createState() => _FilterBottomSheetState();
+  State<FilterBottomSheetAllLawyer> createState() =>
+      _FilterBottomSheetAllLawyerState();
 }
 
-class _FilterBottomSheetState extends State<FilterBottomSheet> {
-  final List<String> status = ['All', 'Active', 'Resolve', 'Pending'];
+class _FilterBottomSheetAllLawyerState
+    extends State<FilterBottomSheetAllLawyer> {
+  final List<String> status = ['All', '3.5', '4.5', '5.0'];
   final List<String> categories = ['All', 'Active', 'Resolve', 'Pending'];
   String? selectedCountry;
   String? selectedCity;
@@ -26,10 +30,56 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   List<int> selectedStatus = [];
 
   Widget _buildChips(
-    List<String> items,
-    List<int> selectedIndexes,
-    Function(int) onTap,
-  ) {
+      List<String> items,
+      List<int> selectedIndexes,
+      Function(int) onTap,
+      ) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: List.generate(items.length, (index) {
+        final selected = selectedIndexes.contains(index);
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              if (selected) {
+                selectedIndexes.remove(index);
+              } else {
+                selectedIndexes.add(index);
+              }
+            });
+            onTap(index);
+          },
+          child: Chip(
+            label: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CustomText(
+                  text: items[index],
+                  fontSize: 12,
+                  color: selected ? whiteColor : textColor,
+                ),
+                Utils.horizontalSpace(4),
+                CustomImage(path: KImages.starFileIcon),
+              ],
+            ),
+            backgroundColor: selected ? searchButtonColor : whiteColor,
+            shape: StadiumBorder(
+              side: BorderSide(
+                color: selected ? searchButtonColor : inputFillBorderColor,
+              ),
+            ),
+          ),
+        );
+      }),
+    );
+  }
+
+  Widget _buildChipsCategory(
+      List<String> items,
+      List<int> selectedIndexes,
+      Function(int) onTap,
+      ) {
     return Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -99,12 +149,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     ),
                     hint: CustomText(text: 'Country', color: hintTextColor),
                     items:
-                        country.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: CustomText(text: value, fontSize: 16),
-                          );
-                        }).toList(),
+                    country.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: CustomText(text: value, fontSize: 16),
+                      );
+                    }).toList(),
                     onChanged: (newValue) {
                       setState(() {
                         selectedCountry = newValue;
@@ -112,7 +162,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     },
                     validator:
                         (value) =>
-                            value == null ? 'Please select an option' : null,
+                    value == null ? 'Please select an option' : null,
                   ),
                 ),
               ),
@@ -134,12 +184,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     ),
                     hint: CustomText(text: 'City', color: hintTextColor),
                     items:
-                        city.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: CustomText(text: value, fontSize: 16),
-                          );
-                        }).toList(),
+                    city.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: CustomText(text: value, fontSize: 16),
+                      );
+                    }).toList(),
                     onChanged: (newValue) {
                       setState(() {
                         selectedCity = newValue;
@@ -147,7 +197,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     },
                     validator:
                         (value) =>
-                            value == null ? 'Please select an option' : null,
+                    value == null ? 'Please select an option' : null,
                   ),
                 ),
               ),
@@ -158,7 +208,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
           _buildChips(status, selectedStatus, (index) {}),
           Utils.verticalSpace(10),
           CustomText(text: 'Category', fontWeight: FontWeight.w500),
-          _buildChips(categories, selectedCategoryIndexes, (index) {}),
+          _buildChipsCategory(categories, selectedCategoryIndexes, (index) {}),
           Utils.verticalSpace(30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -11,7 +11,9 @@ import '../../../widgets/custom_text.dart';
 import 'component/fitler_bottom_sheet.dart';
 
 class ComplainsScreen extends StatefulWidget {
-  const ComplainsScreen({super.key});
+  final bool showBack;
+
+  const ComplainsScreen({super.key, this.showBack = false});
 
   @override
   State<ComplainsScreen> createState() => _ComplainsScreenState();
@@ -26,7 +28,7 @@ class _ComplainsScreenState extends State<ComplainsScreen> {
       appBar: CustomAppBar(
         bgColor: scaffoldColor,
         title: 'All Complaints',
-        visibleLeading: false,
+        visibleLeading: widget.showBack,
         action: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
@@ -120,7 +122,10 @@ class _ComplainsScreenState extends State<ComplainsScreen> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteNames.complaintsDetailsScreen);
+                        Navigator.pushNamed(
+                          context,
+                          RouteNames.complaintsDetailsScreen,
+                        );
                       },
                       child: Container(
                         margin: EdgeInsets.only(bottom: 12, top: 8),

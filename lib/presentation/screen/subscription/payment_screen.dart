@@ -148,37 +148,46 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     context: context,
                     barrierColor: textColor.withOpacity(0.5),
                     builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: whiteColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                        title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            CustomImage(
-                              path: KImages.successSubscription,
-                              width: 110.w,
-                              height: 110.h,
-                              fit: BoxFit.cover,
-                            ),
-                            Utils.verticalSpace(16),
-                            CustomText(
-                              textAlign: TextAlign.center,
-                              text:
-                                  'Success! Upgraded your\n Subscription Plan',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            Utils.verticalSpace(20),
-                            PrimaryButton(
-                              bgColor: textColor,
-                              text: 'That\'s Nice',
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
+                      return Dialog(
+                        backgroundColor: Colors.transparent,
+                        insetPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+                        child: Container(
+                          padding: EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: whiteColor,
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              // Success Image
+                              CustomImage(
+                                path: KImages.successSubscription,
+                                width: 110.w,
+                                height: 110.h,
+                                fit: BoxFit.cover,
+                              ),
+                              Utils.verticalSpace(16),
+
+                              // Title Text
+                              CustomText(
+                                textAlign: TextAlign.center,
+                                text: 'Success! Upgraded your\n Subscription Plan',
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              Utils.verticalSpace(20),
+
+                              PrimaryButton(
+                                bgColor: textColor,
+                                text: "That's Nice",
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },

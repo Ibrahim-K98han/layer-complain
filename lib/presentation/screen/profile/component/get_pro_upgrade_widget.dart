@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../../../routes/route_names.dart';
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';
 import '../../../../utils/utils.dart';
@@ -55,7 +55,9 @@ class GetProUpgradeWidget extends StatelessWidget {
             ],
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, RouteNames.subscriptionScreen);
+            },
             child: Container(
               padding: Utils.symmetric(h: 12.0, v: 4.0),
               decoration: BoxDecoration(

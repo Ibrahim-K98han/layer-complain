@@ -35,7 +35,11 @@ class _MyComplaintsScreenState extends State<MyComplaintsScreen> {
             padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, RouteNames.addComplainsScreen);
+                Navigator.pushNamed(
+                  context,
+                  RouteNames.addComplainsScreen,
+                  arguments: {'showBack': true},
+                );
               },
               child: Row(
                 children: [
@@ -166,5 +170,3 @@ class _MyComplaintsScreenState extends State<MyComplaintsScreen> {
     );
   }
 }
-
-

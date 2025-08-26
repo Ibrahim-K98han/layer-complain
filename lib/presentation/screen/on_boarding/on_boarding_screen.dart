@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:layer_complain/utils/k_images.dart';
-import 'package:layer_complain/widgets/circle_image.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/utils.dart';
 import '../../../routes/route_names.dart';
 import '../../../widgets/custom_image.dart';
 import '../../../widgets/custom_text.dart';
+import 'component/image_sub_circle_container.dart';
+import 'component/image_sub_container.dart';
 import 'data/on_boarding_data.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -88,113 +89,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                               'Trust by Verified Outcomes',
                                         )
                                         : _currentPage == 1
-                                        ? Container(
-                                          padding: Utils.symmetric(
-                                            h: 15.0,
-                                            v: 14.0,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: whiteColor,
-                                            borderRadius: BorderRadius.circular(
-                                              50.r,
-                                            ),
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              CustomText(
-                                                text: '58M+ ',
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              CustomText(text: 'Happy Clients'),
-                                              Utils.horizontalSpace(8),
-                                              Stack(
-                                                children: [
-                                                  SizedBox(
-                                                    width: 105,
-                                                    height: 30,
-                                                  ),
-                                                  Positioned(
-                                                    child: CustomImage(
-                                                      path: KImages.person,
-                                                      width: 28.w,
-                                                      height: 28.h,
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    left: 20,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                          color: whiteColor,
-                                                          width: 2,
-                                                        ),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: CustomImage(
-                                                        path: KImages.person,
-                                                        width: 28.w,
-                                                        height: 28.h,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    left: 40,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                          color: whiteColor,
-                                                          width: 2,
-                                                        ),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: CustomImage(
-                                                        path: KImages.person,
-                                                        width: 28.w,
-                                                        height: 28.h,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    left: 60,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                          color: whiteColor,
-                                                          width: 2,
-                                                        ),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: CustomImage(
-                                                        path: KImages.person,
-                                                        width: 28.w,
-                                                        height: 28.h,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    left: 80,
-                                                    child: Container(
-                                                      padding: Utils.all(value: 4),
-                                                      decoration: BoxDecoration(
-                                                        color: secondaryColor,
-                                                        border: Border.all(
-                                                          color: whiteColor,
-                                                          width: 2,
-                                                        ),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: CustomImage(
-                                                        path: KImages.addCircleIcon,
-                                                        width: 16.w,
-                                                        height: 16.h,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        )
+                                        ? ImageSubCircleContainer()
                                         : ImageSubContainer(
                                           imgColor: yellowColor,
                                           bgColor: yellowLightColor,
@@ -234,13 +129,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               right: 0,
               bottom: 0,
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                  vertical: 32,
-                ),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                padding: Utils.symmetric(v: 32.0),
+                decoration: BoxDecoration(
+                  color: whiteColor,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(36.r),
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black12,
@@ -262,7 +156,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         maxLine: 3,
                       ),
                     ),
-                    Utils.verticalSpace(20.0),
+                    Utils.verticalSpace(15.0),
                     CustomText(
                       text: items[_currentPage].subTitle,
                       fontSize: 16.0,
@@ -364,67 +258,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       ],
                     ),
-                    Utils.verticalSpace(20.0),
+                    Utils.verticalSpace(15.0),
                   ],
                 ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ImageSubContainer extends StatelessWidget {
-  const ImageSubContainer({
-    super.key,
-    required this.image,
-    required this.title,
-    required this.subTitle,
-    required this.bgColor,
-    required this.imgColor,
-  });
-
-  final String image;
-  final String title;
-  final String subTitle;
-  final Color bgColor;
-  final Color imgColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        shadows: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20,
-            offset: const Offset(5, 5),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
-            child: CustomImage(path: image, color: imgColor),
-          ),
-          Utils.horizontalSpace(10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomText(text: title, fontWeight: FontWeight.w600),
-              CustomText(text: subTitle, fontSize: 12),
-            ],
-          ),
-        ],
       ),
     );
   }

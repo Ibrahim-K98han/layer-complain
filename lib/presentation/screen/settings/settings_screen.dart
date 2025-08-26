@@ -73,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -83,7 +83,7 @@ class SettingsScreen extends StatelessWidget {
                   icon: KImages.profileSettingIcon,
                   title: "Profile Setting",
                 ),
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -93,21 +93,21 @@ class SettingsScreen extends StatelessWidget {
                   icon: KImages.notificationSettingsIcon,
                   title: "Notifications Setting",
                 ),
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(context, RouteNames.languageScreen);
                   },
                   icon: KImages.languageIcon,
                   title: "Language",
                 ),
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(context, RouteNames.linkAccountScreen);
                   },
                   icon: KImages.linkAccountIcon,
                   title: "Link Account",
                 ),
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -117,7 +117,7 @@ class SettingsScreen extends StatelessWidget {
                   icon: KImages.passwordChangeIcon,
                   title: "Password Change",
                 ),
-                _SettingsTile(
+                SettingsTile(
                   onTap: () {
                     Navigator.pushNamed(
                       context,
@@ -136,12 +136,12 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-class _SettingsTile extends StatelessWidget {
+class SettingsTile extends StatelessWidget {
   final String icon;
   final String title;
   final VoidCallback onTap;
 
-  const _SettingsTile({
+  const SettingsTile({
     required this.icon,
     required this.title,
     required this.onTap,

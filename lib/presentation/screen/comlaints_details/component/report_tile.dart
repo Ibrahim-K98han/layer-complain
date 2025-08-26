@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/k_images.dart';
@@ -44,8 +43,8 @@ class ReportTile extends StatelessWidget {
                 ),
               ),
             ),
-            Utils.horizontalSpace(2),
-            CustomText(text: text, fontSize: 10, color: lightTextColor),
+            Utils.horizontalSpace(4),
+            CustomText(text: text, fontSize: 12, color: lightTextColor),
           ],
         ),
       ),

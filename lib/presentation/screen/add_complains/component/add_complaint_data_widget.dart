@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:layer_complain/presentation/screen/add_complains/component/terms_and_agree.dart';
 import 'package:layer_complain/routes/route_names.dart';

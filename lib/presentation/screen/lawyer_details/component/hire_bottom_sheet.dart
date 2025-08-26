@@ -191,36 +191,52 @@ class _HireBottomSheetState extends State<HireBottomSheet> {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    backgroundColor: whiteColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomImage(
-                          path: KImages.successSubscription,
-                          width: 110.w,
-                          height: 110.h,
-                          fit: BoxFit.cover,
-                        ),
-                        CustomText(
-                          text: 'Your Legal Request\nhas Been Submitted!',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        Utils.verticalSpace(20),
-                        PrimaryButton(
-                          text: 'That’s Nice',
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          bgColor: textColor,
-                        ),
-                      ],
+                  return Dialog(
+                    backgroundColor: Colors.transparent,
+                    insetPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+                    child: Container(
+                      padding: EdgeInsets.all(16.w),
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          // Image
+                          CustomImage(
+                            path: KImages.successSubscription,
+                            width: 110.w,
+                            height: 110.h,
+                            fit: BoxFit.cover,
+                          ),
+
+                          Utils.verticalSpace(16),
+
+                          // Title text
+                          CustomText(
+                            text: 'Your Legal Request\nhas Been Submitted!',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            textAlign: TextAlign.center,
+                          ),
+
+                          Utils.verticalSpace(20),
+
+                          // Button
+                          PrimaryButton(
+                            text: 'That’s Nice',
+                            bgColor: textColor,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   );
+
                 },
               );
             },

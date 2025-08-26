@@ -29,6 +29,7 @@ class Assets {
   static const String componentDetailsHeadingSection = 'lib/presentation/screen/comlaints_details/component/details_heading_section.dart';
   static const String componentEvidenceSection = 'lib/presentation/screen/comlaints_details/component/evidence_section.dart';
   static const String componentExperienceAndNotable = 'lib/presentation/screen/lawyer_details/component/experience_and_notable.dart';
+  static const String componentFilterBottomSheetAllLawyer = 'lib/presentation/screen/find_lawyer/component/filter_bottom_sheet_all_lawyer.dart';
   static const String componentFindLawyerAppBar = 'lib/presentation/screen/find_lawyer/component/find_lawyer_app_bar.dart';
   static const String componentFitlerBottomSheet = 'lib/presentation/screen/complains/component/fitler_bottom_sheet.dart';
   static const String componentGetProUpgradeWidget = 'lib/presentation/screen/profile/component/get_pro_upgrade_widget.dart';
@@ -36,13 +37,19 @@ class Assets {
   static const String componentHomeAppBar = 'lib/presentation/screen/home/component/home_app_bar.dart';
   static const String componentHomeBannerSection = 'lib/presentation/screen/home/component/home_banner_section.dart';
   static const String componentIdentityPhoneEmail = 'lib/presentation/screen/authentication/component/identity_phone_email.dart';
+  static const String componentImageSubCircleContainer = 'lib/presentation/screen/on_boarding/component/image_sub_circle_container.dart';
+  static const String componentImageSubContainer = 'lib/presentation/screen/on_boarding/component/image_sub_container.dart';
   static const String componentIndividualRegisterForm = 'lib/presentation/screen/authentication/component/individual_register_form.dart';
   static const String componentLawyerBanner = 'lib/presentation/screen/find_lawyer/component/lawyer_banner.dart';
   static const String componentLawyerConsumerItem = 'lib/presentation/screen/lawyer_details/component/lawyer_consumer_item.dart';
+  static const String componentLawyerContainer = 'lib/presentation/screen/find_lawyer/component/lawyer_container.dart';
   static const String componentLawyerDetailsHeading = 'lib/presentation/screen/lawyer_details/component/lawyer_details_heading.dart';
   static const String componentLawyerRegisterForm = 'lib/presentation/screen/authentication/component/lawyer_register_form.dart';
+  static const String componentLawyerShareDialog = 'lib/presentation/screen/lawyer_details/component/lawyer_share_dialog.dart';
   static const String componentMainController = 'lib/presentation/screen/main_screen/component/main_controller.dart';
   static const String componentMessageBottomSheet = 'lib/presentation/screen/lawyer_details/component/message_bottom_sheet.dart';
+  static const String componentMessageFilterBottomSheet = 'lib/presentation/screen/message/component/message_filter_bottom_sheet.dart';
+  static const String componentMessageHireBtnSection = 'lib/presentation/screen/lawyer_details/component/message_hire_btn_section.dart';
   static const String componentMessageSection = 'lib/presentation/screen/message/component/message_section.dart';
   static const String componentMonthAndYearBtn = 'lib/presentation/screen/subscription/component/month_and_year_btn.dart';
   static const String componentMyBottomNavigationBar = 'lib/presentation/screen/main_screen/component/my_bottom_navigation_bar.dart';
@@ -68,8 +75,8 @@ class Assets {
   static const String componentSpecializationTile = 'lib/presentation/screen/lawyer_details/component/specialization_tile.dart';
   static const String componentSuccessPassword = 'lib/presentation/screen/authentication/component/success_password.dart';
   static const String componentSummarySection = 'lib/presentation/screen/comlaints_details/component/summary_section.dart';
+  static const String componentSwitchWidget = 'lib/presentation/screen/settings/component/switch_widget.dart';
   static const String componentTermsAndAgree = 'lib/presentation/screen/add_complains/component/terms_and_agree.dart';
-  static const String componentTopLawyer = 'lib/presentation/screen/find_lawyer/component/top_lawyer.dart';
   static const String dataOnBoardingData = 'lib/presentation/screen/on_boarding/data/on_boarding_data.dart';
   static const String findLawyerAllLawyerScreen = 'lib/presentation/screen/find_lawyer/all_lawyer_screen.dart';
   static const String findLawyerFindLawyerScreen = 'lib/presentation/screen/find_lawyer/find_lawyer_screen.dart';

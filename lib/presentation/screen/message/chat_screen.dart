@@ -172,14 +172,20 @@ class ChatInputField extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        CustomImage(
-                          path: KImages.addFileIcon,
-                          color: hintTextColor,
+                        GestureDetector(
+                          onTap: () {},
+                          child: CustomImage(
+                            path: KImages.linkIcon,
+                            color: hintTextColor,
+                          ),
                         ),
                         Utils.horizontalSpace(8),
-                        CustomImage(
-                          path: KImages.camersIcon,
-                          color: hintTextColor,
+                        GestureDetector(
+                          onTap: () {},
+                          child: CustomImage(
+                            path: KImages.camersIcon,
+                            color: hintTextColor,
+                          ),
                         ),
                       ],
                     ),
