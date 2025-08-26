@@ -14,7 +14,22 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  bool isSelected = false;
+  String selectedLanguage = 'English (US)';
+  final List<Map<String, String>> languages = [
+    {"flag": "🇺🇸", "name": "English (US)"},
+    {"flag": "🇧🇩", "name": "Bangladesh"},
+    {"flag": "🇵🇰", "name": "Pakistan"},
+    {"flag": "🇦🇫", "name": "Afghanistan"},
+    {"flag": "🇮🇳", "name": "Hindi"},
+    {"flag": "🇬🇧", "name": "English (ENG)"},
+    {"flag": "🇮🇩", "name": "Indonesian"},
+    {"flag": "🇷🇺", "name": "Russia"},
+    {"flag": "🇫🇷", "name": "French"},
+    {"flag": "🇨🇳", "name": "Chinese"},
+    {"flag": "🇯🇵", "name": "Japanese"},
+    {"flag": "🇩🇪", "name": "Germany"},
+    {"flag": "🇳🇱", "name": "Netherland"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,66 +53,33 @@ class _LanguageScreenState extends State<LanguageScreen> {
             keyboardType: TextInputType.emailAddress,
           ),
           Utils.verticalSpace(20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  CustomImage(
-                    path: KImages.usIcon,
-                    width: 20,
-                    height: 15,
-                    fit: BoxFit.cover,
-                  ),
-                  Utils.horizontalSpace(10),
-                  CustomText(
-                    text: 'English (US)',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ],
-              ),
-              Container(
-                padding: Utils.all(value: 6),
-                decoration: BoxDecoration(
-                  color: primaryColor,
-
-                  shape: BoxShape.circle,
+          ListView.builder(
+            itemCount: languages.length,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              final lang = languages[index];
+              return ListTile(
+                leading: Text(
+                  lang["flag"]!,
+                  style: const TextStyle(fontSize: 22),
                 ),
-                child: CustomImage(path: KImages.rightIcon),
-              ),
-            ],
-          ),
-          Utils.verticalSpace(20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  CustomImage(
-                    path: KImages.usIcon,
-                    width: 20,
-                    height: 15,
-                    fit: BoxFit.cover,
-                  ),
-                  Utils.horizontalSpace(10),
-                  CustomText(
-                    text: 'English (US)',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ],
-              ),
-              Container(
-                padding: Utils.all(value: 6),
-                decoration: BoxDecoration(
-                  color: primaryColor,
-
-                  shape: BoxShape.circle,
+                title: CustomText(
+                  text: lang["name"]!,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
-                child: CustomImage(path: KImages.rightIcon),
-              ),
-            ],
+                trailing:
+                    selectedLanguage == lang["name"]!
+                        ? const Icon(Icons.check_circle, color: primaryColor)
+                        : const Icon(Icons.circle_outlined, color: Colors.grey),
+                onTap: () {
+                  setState(() {
+                    selectedLanguage = lang["name"]!;
+                  });
+                },
+              );
+            },
           ),
         ],
       ),

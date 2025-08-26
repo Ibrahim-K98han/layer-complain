@@ -4,7 +4,6 @@ import 'package:layer_complain/utils/k_images.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/utils.dart';
-import '../../../../widgets/circle_image.dart';
 import '../../../../widgets/custom_image.dart';
 import '../../../../widgets/custom_text.dart';
 
@@ -43,46 +42,6 @@ class _FindLawyerAppBarState extends State<FindLawyerAppBar> {
                     onTap: () => Navigator.pop(context),
                     child: CustomImage(path: KImages.arrowLeftIcon),
                   ),
-                  // Custom top right actions
-                  // Row(
-                  //   children: [
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         // Handle favorite action
-                  //       },
-                  //       child: Container(
-                  //         padding: Utils.all(value: 8),
-                  //         margin: Utils.only(right: 8.0),
-                  //         decoration: BoxDecoration(
-                  //           color: whiteColor.withOpacity(0.2),
-                  //           borderRadius: BorderRadius.circular(12.r),
-                  //         ),
-                  //         child: Icon(
-                  //           Icons.favorite_border,
-                  //           color: whiteColor,
-                  //           size: 20.sp,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     GestureDetector(
-                  //       onTap: () {
-                  //         // Handle menu action
-                  //       },
-                  //       child: Container(
-                  //         padding: Utils.all(value: 8),
-                  //         decoration: BoxDecoration(
-                  //           color: whiteColor.withOpacity(0.2),
-                  //           borderRadius: BorderRadius.circular(12.r),
-                  //         ),
-                  //         child: Icon(
-                  //           Icons.more_vert,
-                  //           color: whiteColor,
-                  //           size: 20.sp,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
                 ],
               ),
             ),

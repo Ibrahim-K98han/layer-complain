@@ -147,51 +147,73 @@ class ShowAddReviewDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: whiteColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(
-            textAlign: TextAlign.center,
-            text: 'Review Now',
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-          Utils.verticalSpace(16),
-          RatingBar.builder(
-            initialRating: 4,
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemSize: 24,
-            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-            itemBuilder:
-                (context, _) => CustomImage(path: KImages.starFileIcon),
-            onRatingUpdate: (rating) {
-              print(rating);
-            },
-          ),
-          Utils.verticalSpace(16),
-          CustomForm(
-            label: 'Write a Feedback',
-            child: TextFormField(
-              maxLines: 2,
-              decoration: const InputDecoration(hintText: 'Write a Feedback'),
-              keyboardType: TextInputType.emailAddress,
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+      child: Container(
+        padding: EdgeInsets.all(16.w),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Title
+            Center(
+              child: CustomText(
+                textAlign: TextAlign.center,
+                text: 'Review Now',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          Utils.verticalSpace(16),
-          PrimaryButton(
-            bgColor: textColor,
-            text: 'Submit Reviews',
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
+
+            Utils.verticalSpace(16),
+
+            // Rating Stars
+            Center(
+              child: RatingBar.builder(
+                initialRating: 4,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemSize: 24,
+                itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                itemBuilder:
+                    (context, _) => CustomImage(path: KImages.starFileIcon),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              ),
+            ),
+
+            Utils.verticalSpace(16),
+
+            // Feedback field
+            CustomForm(
+              label: 'Write a Feedback',
+              child: TextFormField(
+                maxLines: 2,
+                decoration: const InputDecoration(hintText: 'Write a Feedback'),
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
+
+            Utils.verticalSpace(16),
+
+            // Submit Button
+            PrimaryButton(
+              bgColor: textColor,
+              text: 'Submit Reviews',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

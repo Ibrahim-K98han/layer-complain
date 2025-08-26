@@ -36,7 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
               title: 'Recent Complaints',
               subTitle: 'View All',
               onTap: () {
-                Navigator.pushNamed(context, RouteNames.complainScreen);
+                Navigator.pushNamed(
+                  context,
+                  RouteNames.complainScreen,
+                  arguments: {'showBack': true},
+                );
               },
             ),
           ),
@@ -56,9 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SliverToBoxAdapter(child: Utils.verticalSpace(8)),
 
           /// ============ Banner Section ================///
-          HomeBannerSection(),
+          SliverToBoxAdapter(child: CarouselExample()),
 
           ///============ All Complaints Section =============///
           SliverToBoxAdapter(child: Utils.verticalSpace(20)),

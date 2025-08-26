@@ -5,7 +5,9 @@ import 'package:layer_complain/utils/utils.dart';
 import 'package:layer_complain/widgets/custom_appbar.dart';
 
 class AddComplainsScreen extends StatefulWidget {
-  const AddComplainsScreen({super.key});
+  final bool showBack;
+
+  const AddComplainsScreen({super.key, this.showBack = false});
 
   @override
   State<AddComplainsScreen> createState() => _AddComplainsScreenState();
@@ -16,7 +18,11 @@ class _AddComplainsScreenState extends State<AddComplainsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColor,
-      appBar: CustomAppBar(bgColor: whiteColor, title: 'Submit Complaint'),
+      appBar: CustomAppBar(
+        bgColor: whiteColor,
+        title: 'Submit Complaint',
+        visibleLeading: widget.showBack,
+      ),
       body: Padding(
         padding: Utils.symmetric(),
         child: ListView(

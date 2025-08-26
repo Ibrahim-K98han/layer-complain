@@ -462,40 +462,53 @@ class _BecomeALawyerScreenState extends State<BecomeALawyerScreen> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: whiteColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.r),
+                      return Dialog(
+                        backgroundColor: Colors.transparent,
+                        insetPadding: EdgeInsets.symmetric(
+                          horizontal: 24.w,
+                          vertical: 24.h,
                         ),
+                        child: Container(
+                          padding: EdgeInsets.all(16.w),
+                          decoration: BoxDecoration(
+                            color: whiteColor,
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              // Success Image
+                              CustomImage(
+                                path: KImages.successComplain,
+                                width: 132.w,
+                                height: 110.h,
+                                fit: BoxFit.cover,
+                              ),
 
-                        content: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            CustomImage(
-                              path: KImages.successComplain,
-                              width: 132.w,
-                              height: 110.h,
-                              fit: BoxFit.cover,
-                            ),
-                            Utils.verticalSpace(12),
-                            CustomText(
-                              textAlign: TextAlign.center,
-                              text:
-                                  'Application under Review, We’ll Contact you Shortly.',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            Utils.verticalSpace(20),
-                            PrimaryButton(
-                              bgColor: textColor,
-                              text: 'That\'s Nice',
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
+                              Utils.verticalSpace(12),
+
+                              // Message Text
+                              CustomText(
+                                textAlign: TextAlign.center,
+                                text:
+                                    'Application under Review,\nWe’ll Contact you Shortly.',
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+
+                              Utils.verticalSpace(20),
+
+                              // Button
+                              PrimaryButton(
+                                bgColor: textColor,
+                                text: 'That\'s Nice',
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },

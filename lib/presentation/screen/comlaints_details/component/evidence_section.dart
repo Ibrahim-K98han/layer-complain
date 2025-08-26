@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +8,13 @@ import '../../../../widgets/custom_image.dart';
 import '../../../../widgets/custom_text.dart';
 
 class EvidenceSection extends StatelessWidget {
-  const EvidenceSection({super.key});
+  EvidenceSection({super.key});
+
+  final List<Map<String, dynamic>> evidenceList = [
+    {'image': KImages.evidence, 'text': 'Book Confirmation'},
+    {'image': KImages.evidence, 'text': 'Hotel Receipt'},
+    {'image': KImages.evidence, 'text': 'Screenshot'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,52 +32,61 @@ class EvidenceSection extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
-                    child: CustomImage(
-                      path: KImages.evidence,
-                      width: 100.w,
-                      height: 100.h,
-                    ),
-                  ),
-                  Utils.verticalSpace(4),
-                  CustomText(text: 'Book Confirmation', fontSize: 11),
-                ],
-              ),
-              Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
-                    child: CustomImage(
-                      path: KImages.evidence,
-                      width: 100.w,
-                      height: 100.h,
-                    ),
-                  ),
-                  Utils.verticalSpace(4),
-                  CustomText(text: 'Book Confirmation', fontSize: 11),
-                ],
-              ),
-              Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
-                    child: CustomImage(
-                      path: KImages.evidence,
-                      width: 100.w,
-                      height: 100.h,
-                    ),
-                  ),
-                  Utils.verticalSpace(4),
-                  CustomText(text: 'Book Confirmation', fontSize: 11),
-                ],
-              ),
-            ],
+            children: List.generate(evidenceList.length, (index) {
+              return EvidenceImage(
+                image: evidenceList[index]['image'],
+                text: evidenceList[index]['text'],
+              );
+            }),
           ),
         ),
+      ],
+    );
+  }
+}
+
+class EvidenceImage extends StatelessWidget {
+  const EvidenceImage({super.key, required this.image, required this.text});
+
+  final String image;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder:
+                  (_) => Dialog(
+                    backgroundColor: Colors.transparent,
+                    insetPadding: EdgeInsets.all(16),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12.r),
+                      child: CustomImage(
+                        path: image,
+                        width: double.infinity,
+                        height: 300.h,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.r),
+            child: CustomImage(
+              path: image,
+              width: 100.w,
+              height: 100.h,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Utils.verticalSpace(4),
+        CustomText(text: text, fontSize: 11, fontWeight: FontWeight.w500),
       ],
     );
   }

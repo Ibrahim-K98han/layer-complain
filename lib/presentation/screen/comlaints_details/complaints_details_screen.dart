@@ -7,7 +7,7 @@ import 'package:layer_complain/utils/utils.dart';
 import 'package:layer_complain/widgets/custom_appbar.dart';
 import 'package:layer_complain/widgets/custom_image.dart';
 import 'package:layer_complain/widgets/custom_text.dart';
-
+import '../main_screen/component/main_controller.dart';
 import 'component/comment_container.dart';
 import 'component/details_banner_section.dart';
 import 'component/details_heading_section.dart';
@@ -29,24 +29,30 @@ class ComplaintsDetailsScreen extends StatefulWidget {
 class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final MainController _controller = MainController();
+
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: CustomAppBar(
         bgColor: whiteColor,
         title: 'Complaints',
         action: [
-          IconButton(
-            onPressed: () async {
-              final result = await showMenu<String>(
-                context: context,
-                position: RelativeRect.fromLTRB(200, 100, 0, 0),
-                color: whiteColor,
-                items: [
+          PopupMenuButton(
+            color: Colors.white,
+            itemBuilder:
+                (context) => [
                   PopupMenuItem(
                     value: "message",
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteNames.messageScreen);
+                        print("call");
+                        Navigator.pushNamed(
+                          context,
+                          RouteNames.messageScreen,
+                          arguments: {'showBack': true},
+                        );
+
+                        // _controller.naveListener.sink.add(2);
                       },
                       child: Row(
                         children: [
@@ -64,66 +70,96 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return AlertDialog(
-                              backgroundColor: whiteColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.r),
+                            return Dialog(
+                              backgroundColor: Colors.transparent,
+                              // allow custom container shape
+                              insetPadding: EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 24.0,
                               ),
-                              title: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    text: 'Social Share',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  Utils.horizontalLine(),
-                                ],
-                              ),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    text: 'Share this link via',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  Utils.verticalSpace(6),
-                                  Row(
-                                    children: [
-                                      SocialMediaWidget(
-                                        icon: KImages.facebookIcon,
-                                      ),
-                                      SocialMediaWidget(
-                                        icon: KImages.linkedinIcon,
-                                      ),
-                                      SocialMediaWidget(
-                                        icon: KImages.instaIcon,
-                                      ),
-                                      SocialMediaWidget(icon: KImages.xIcon),
-                                    ],
-                                  ),
-                                  Utils.verticalSpace(10),
-                                  CustomText(
-                                    text: 'Copy Link',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  Utils.verticalSpace(4),
-                                  TextFormField(
-                                    maxLines: 1,
-                                    decoration: InputDecoration(
-                                      hintText:
-                                          'www.servingo.com/profile/0458...',
-                                      suffixIcon: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.content_copy_rounded,
+                              child: Container(
+                                padding: EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Title
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Social Share',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
-                                      ),
+                                        Utils.horizontalLine(),
+                                      ],
                                     ),
-                                    keyboardType: TextInputType.emailAddress,
-                                  ),
-                                ],
+                                    SizedBox(height: 8),
+
+                                    // Content
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Share this link via',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Utils.verticalSpace(6),
+                                        Row(
+                                          children: [
+                                            SocialMediaWidget(
+                                              icon: KImages.facebookIcon,
+                                            ),
+                                            SocialMediaWidget(
+                                              icon: KImages.linkedinIcon,
+                                            ),
+                                            SocialMediaWidget(
+                                              icon: KImages.instaIcon,
+                                            ),
+                                            SocialMediaWidget(
+                                              icon: KImages.xIcon,
+                                            ),
+                                          ],
+                                        ),
+                                        Utils.verticalSpace(10),
+                                        Text(
+                                          'Copy Link',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Utils.verticalSpace(4),
+                                        TextFormField(
+                                          maxLines: 1,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                'www.servingo.com/profile/0458...',
+                                            suffixIcon: IconButton(
+                                              onPressed: () {},
+                                              icon: const Icon(
+                                                Icons.content_copy_rounded,
+                                              ),
+                                            ),
+                                          ),
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },
@@ -154,8 +190,7 @@ class _ComplaintsDetailsScreenState extends State<ComplaintsDetailsScreen> {
                     ),
                   ),
                 ],
-              );
-            },
+
             icon: Icon(Icons.more_vert),
           ),
         ],

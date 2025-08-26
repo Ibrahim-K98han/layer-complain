@@ -157,70 +157,87 @@ class ShowAddLogoutDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: whiteColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CustomImage(
-            path: KImages.logout,
-            width: 120.w,
-            height: 120,
-            fit: BoxFit.cover,
-          ),
-          Utils.verticalSpace(16),
-          CustomText(
-            textAlign: TextAlign.center,
-            text: 'Are you Sure?\nLogout your Account',
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-          ),
-          Utils.verticalSpace(24),
-          Row(
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    padding: Utils.symmetric(h: 16.0, v: 12.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: inputFillBorderColor),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Center(
-                      child: CustomText(text: 'Cancel', fontSize: 16),
-                    ),
-                  ),
-                ),
-              ),
-              Utils.horizontalSpace(8),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, RouteNames.loginScreen);
-                  },
-                  child: Container(
-                    padding: Utils.symmetric(h: 16.0, v: 12.0),
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Center(
-                      child: CustomText(
-                        text: 'Logout',
-                        color: whiteColor,
-                        fontSize: 16,
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+      child: Container(
+        padding: EdgeInsets.all(16.w),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Logout Image
+            CustomImage(
+              path: KImages.logout,
+              width: 120.w,
+              height: 120,
+              fit: BoxFit.cover,
+            ),
+
+            Utils.verticalSpace(16),
+
+            // Title
+            CustomText(
+              textAlign: TextAlign.center,
+              text: 'Are you Sure?\nLogout your Account',
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+
+            Utils.verticalSpace(24),
+
+            // Buttons
+            Row(
+              children: [
+                // Cancel Button
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Container(
+                      padding: Utils.symmetric(h: 16.0, v: 12.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: inputFillBorderColor),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Center(
+                        child: CustomText(text: 'Cancel', fontSize: 16),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+
+                Utils.horizontalSpace(8),
+
+                // Logout Button
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteNames.loginScreen);
+                    },
+                    child: Container(
+                      padding: Utils.symmetric(h: 16.0, v: 12.0),
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Center(
+                        child: CustomText(
+                          text: 'Logout',
+                          color: whiteColor,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

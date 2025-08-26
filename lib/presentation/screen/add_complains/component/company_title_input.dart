@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/constraints.dart';
 import '../../../../utils/utils.dart';
-
-import '../../../../utils/utils.dart';
 import '../../../../widgets/custom_text.dart';
 
 class CompanyTitleInput extends StatelessWidget {

@@ -3,8 +3,6 @@ import 'package:layer_complain/presentation/screen/complains/complains_screen.da
 import 'package:layer_complain/presentation/screen/message/message_screen.dart';
 import 'package:layer_complain/utils/constraints.dart';
 
-import '../../../utils/k_images.dart';
-import '../../../widgets/custom_image.dart';
 import '../add_complains/add_complains_screen.dart';
 import '../home/home_screen.dart';
 import '../profile/profile_screen.dart';
@@ -12,7 +10,9 @@ import 'component/main_controller.dart';
 import 'component/my_bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final bool showBack;
+
+  const MainScreen({super.key, this.showBack = false});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -21,13 +21,19 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final MainController _controller = MainController();
 
-  final List<Widget> _screens = const [
-    HomeScreen(),
-    ComplainsScreen(),
-    AddComplainsScreen(),
-    MessageScreen(),
-    ProfileScreen(),
-  ];
+  late List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      const HomeScreen(),
+      ComplainsScreen(showBack: widget.showBack),
+      AddComplainsScreen(showBack: widget.showBack),
+      MessageScreen(showBack: widget.showBack),
+      const ProfileScreen(),
+    ];
+  }
 
   @override
   void dispose() {

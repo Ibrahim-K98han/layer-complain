@@ -150,14 +150,16 @@ class RouteNames {
           builder: (_) => const HomeScreen(),
         );
       case RouteNames.complainScreen:
+        final args = settings.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ComplainsScreen(),
+          builder: (_) => ComplainsScreen(showBack: args?['showBack'] ?? true),
         );
       case RouteNames.messageScreen:
+        final args = settings.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const MessageScreen(),
+          builder: (_) => MessageScreen(showBack: args?['showBack'] ?? true),
         );
       case RouteNames.profileScreen:
         return MaterialPageRoute(
@@ -165,9 +167,11 @@ class RouteNames {
           builder: (_) => const ProfileScreen(),
         );
       case RouteNames.addComplainsScreen:
+        final args = settings.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const AddComplainsScreen(),
+          builder:
+              (_) => AddComplainsScreen(showBack: args?['showBack'] ?? true),
         );
       case RouteNames.complaintsDetailsScreen:
         return MaterialPageRoute(

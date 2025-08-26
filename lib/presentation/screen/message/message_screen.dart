@@ -6,11 +6,13 @@ import '../../../routes/route_names.dart';
 import '../../../utils/k_images.dart';
 import '../../../utils/utils.dart';
 import '../../../widgets/custom_image.dart';
-import '../../../widgets/custom_text.dart';
+import 'component/message_filter_bottom_sheet.dart';
 import 'component/message_section.dart';
 
 class MessageScreen extends StatefulWidget {
-  const MessageScreen({super.key});
+  final bool showBack;
+
+  const MessageScreen({super.key, this.showBack = false});
 
   @override
   State<MessageScreen> createState() => _MessageScreenState();
@@ -24,7 +26,7 @@ class _MessageScreenState extends State<MessageScreen> {
       appBar: CustomAppBar(
         bgColor: whiteColor,
         title: 'Message',
-        visibleLeading: false,
+        visibleLeading: widget.showBack,
         action: [
           IconButton(
             onPressed: () {
@@ -111,78 +113,6 @@ class _MessageScreenState extends State<MessageScreen> {
                 Utils.verticalSpace(16),
               ],
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MessageFilterBottomSheet extends StatefulWidget {
-  const MessageFilterBottomSheet({super.key});
-
-  @override
-  State<MessageFilterBottomSheet> createState() =>
-      _MessageFilterBottomSheetState();
-}
-
-class _MessageFilterBottomSheetState extends State<MessageFilterBottomSheet> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: Utils.symmetric(h: 12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomText(
-                text: 'Filter',
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-              CustomImage(
-                path: KImages.closeIcon,
-                width: 20.w,
-                height: 20.h,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          Utils.verticalSpace(16),
-          Utils.horizontalLine(),
-          Utils.verticalSpace(16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomText(text: 'All messages', fontSize: 18),
-              Container(
-                width: 20.w,
-                height: 20.h,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ],
-          ),
-          Utils.verticalSpace(16),
-          Utils.horizontalLine(),
-          Utils.verticalSpace(16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomText(text: 'Unread messages', fontSize: 18),
-              Container(
-                width: 20.w,
-                height: 20.h,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ],
           ),
         ],
       ),

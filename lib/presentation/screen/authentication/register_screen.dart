@@ -183,15 +183,28 @@ class _RegisterScreenState extends State<RegisterScreen>
               padding: EdgeInsets.zero,
               controller: _tabController,
               indicatorSize: TabBarIndicatorSize.tab,
-              labelColor: primaryColor,
+              dividerColor: lightTextColor.withOpacity(0.2),
+              labelPadding: EdgeInsets.zero,
               unselectedLabelColor: textColor,
-              indicator: BoxDecoration(
-                color: primaryLightColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(6),
-                  topRight: Radius.circular(6),
-                ),
+              labelColor: primaryColor,
+              dividerHeight: 1,
+              indicatorColor: primaryColor,
+              indicatorWeight: 1,
+              // indicator: BoxDecoration(
+              //   color: primaryLightColor,
+              //   borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(6),
+              //     topRight: Radius.circular(6),
+              //   ),
+              // ),
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(width: 1.0, color: primaryColor),
+                // underline color & thickness
+                insets: EdgeInsets.symmetric(
+                  horizontal: 0.0,
+                ), // optional: shorter than tab width
               ),
+
               tabs: [
                 _buildTab(KImages.individualIcon, "Individual", 0),
                 _buildTab(KImages.lawyerIcon, "Lawyer", 1),
@@ -222,13 +235,20 @@ class _RegisterScreenState extends State<RegisterScreen>
   Widget _buildTab(String iconPath, String label, int index) {
     final isSelected = _selectedIndex == index;
     final color = isSelected ? primaryColor : textColor;
-
-    return Tab(
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      decoration: BoxDecoration(
+        color: isSelected ? primaryLightColor : Colors.transparent,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(6),
+          topRight: Radius.circular(6),
+        ),
+      ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomImage(path: iconPath, width: 14, height: 14, color: color),
-
+          CustomImage(path: iconPath, width: 16, height: 16, color: color),
+          SizedBox(width: 6),
           CustomText(text: label, color: color),
         ],
       ),
